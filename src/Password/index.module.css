@@ -1,0 +1,15 @@
+.password {
+  --password-strength-color: color-mix(
+    in oklab,
+    var(--mantine-color-red-6),
+    var(--mantine-color-teal-6) var(--password-strength)
+  );
+}
+
+.requirement {
+  color: var(--password-strength-color);
+}
+
+.progress_section {
+  --progress-section-color: var(--password-strength-color) !important;
+}

@@ -1,0 +1,7 @@
+.group {
+  gap: calc(var(--mantine-spacing-xl) * 5);
+}
+
+.title {
+  font-size: var(--mantine-h3-font-size);
+}
