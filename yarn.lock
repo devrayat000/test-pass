@@ -2092,6 +2092,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jotai@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "jotai@npm:2.4.3"
+  peerDependencies:
+    "@types/react": ">=17.0.0"
+    react: ">=17.0.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    react:
+      optional: true
+  checksum: 4991faba3284978bda3d90c6b1fc711759b76ce83ff04edb181d7929951ee54cb077793e5e4b0bba2ddf07fb6681a97a9d3007e2697d6ef181a66479ef9b2116
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -2398,6 +2413,15 @@ __metadata:
   bin:
     nanoid: bin/nanoid.cjs
   checksum: 7d0eda657002738aa5206107bd0580aead6c95c460ef1bdd0b1a87a9c7ae6277ac2e9b945306aaa5b32c6dcb7feaf462d0f552e7f8b5718abfc6ead5c94a71b3
+  languageName: node
+  linkType: hard
+
+"nanoid@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "nanoid@npm:5.0.1"
+  bin:
+    nanoid: bin/nanoid.js
+  checksum: fb5a57ec0563f12f101129b2f11fe50505e5f1219760c43e6ae30fc0a0d2aa269985f6d07ddea15e3bd4b24751c9ef14fa8117cbc80d410726429e2b37a4b13f
   languageName: node
   linkType: hard
 
@@ -3140,13 +3164,17 @@ __metadata:
     eslint: ^8.45.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.3
+    jotai: ^2.4.3
+    nanoid: ^5.0.1
     postcss: ^8.4.30
     postcss-preset-mantine: ^1.7.0
     postcss-simple-vars: ^7.0.1
     react: ^18.2.0
     react-dom: ^18.2.0
     typescript: ^5.0.2
+    valibot: ^0.17.1
     vite: ^4.4.5
+    zod: ^3.22.2
   languageName: unknown
   linkType: soft
 
@@ -3346,6 +3374,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"valibot@npm:^0.17.1":
+  version: 0.17.1
+  resolution: "valibot@npm:0.17.1"
+  checksum: c3f02c917fa62052dc00a88f9a1cb3f5587cb77a6ace647b14ea02e9431134a9b5258d5ed03c0ed6a68ee3d7d4ca8b279d0acf8de6d33d3b4a7bca1ca5b151b2
+  languageName: node
+  linkType: hard
+
 "vite@npm:^4.4.5":
   version: 4.4.9
   resolution: "vite@npm:4.4.9"
@@ -3453,5 +3488,12 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.22.2":
+  version: 3.22.2
+  resolution: "zod@npm:3.22.2"
+  checksum: 231e2180c8eabb56e88680d80baff5cf6cbe6d64df3c44c50ebe52f73081ecd0229b1c7215b9552537f537a36d9e36afac2737ddd86dc14e3519bdbc777e82b9
   languageName: node
   linkType: hard

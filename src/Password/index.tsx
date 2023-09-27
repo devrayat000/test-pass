@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { IconX, IconCheck } from "@tabler/icons-react";
 import {
   PasswordInput,
@@ -9,23 +8,26 @@ import {
   Card,
   Stack,
 } from "@mantine/core";
+import { useAtomValue, useAtom } from "jotai/react";
 
+import {
+  type Requirement,
+  requirementsAtom,
+  passwordAtom,
+  strengthAtom,
+  meetsRequirementsAtom,
+} from "./store";
 import classes from "./index.module.css";
 
-function PasswordRequirement({
-  meets,
-  label,
-}: {
-  meets: boolean;
-  label: string;
-}) {
+function PasswordRequirement({ requirement }: { requirement: Requirement }) {
+  const meets = useAtomValue(meetsRequirementsAtom(requirement));
+
   return (
     <Text
-      c={meets ? "teal" : undefined}
+      c={meets ? "teal" : "red"}
       style={{ display: "flex", alignItems: "center" }}
       mt={7}
       size="sm"
-      className={classes.requirement}
       component="p"
     >
       {meets ? (
@@ -33,42 +35,24 @@ function PasswordRequirement({
       ) : (
         <IconX style={{ width: rem(14), height: rem(14) }} />
       )}{" "}
-      <Box ml={10}>{label}</Box>
+      <Box component="span" ml={10}>
+        {requirement.label}
+      </Box>
     </Text>
   );
 }
 
-const requirements = [
-  { re: /[0-9]/, label: "Includes number" },
-  { re: /[a-z]/, label: "Includes lowercase letter" },
-  { re: /[A-Z]/, label: "Includes uppercase letter" },
-  { re: /[$&+,:;=?@#|'<>.^*()%!-]/, label: "Includes special symbol" },
-];
+function Requirements() {
+  const requirements = useAtomValue(requirementsAtom);
 
-function getStrength(password: string) {
-  let multiplier = password.length > 5 ? 0 : 1;
-
-  requirements.forEach((requirement) => {
-    if (!requirement.re.test(password)) {
-      multiplier += 1;
-    }
-  });
-
-  return Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 0);
+  return requirements.map((requirement) => (
+    <PasswordRequirement key={requirement.label} requirement={requirement} />
+  ));
 }
 
 export default function Password() {
-  const [value, setValue] = useState("");
-  const checks = requirements.map((requirement, index) => (
-    <PasswordRequirement
-      key={index}
-      label={requirement.label}
-      meets={requirement.re.test(value)}
-    />
-  ));
-
-  const strength = getStrength(value);
-  //   const color = strength === 100 ? "teal" : strength > 50 ? "yellow" : "red";
+  const [value, setValue] = useAtom(passwordAtom);
+  const strength = useAtomValue(strengthAtom);
 
   return (
     <Stack
@@ -83,18 +67,14 @@ export default function Password() {
         value={value}
         onChange={(event) => setValue(event.currentTarget.value)}
       />
-      <Card withBorder>
+      <Card withBorder shadow="none">
         <Progress
           value={strength}
           size={10}
           mb="xs"
           classNames={{ section: classes.progress_section }}
         />
-        <PasswordRequirement
-          label="Includes at least 6 characters"
-          meets={value.length > 5}
-        />
-        {checks}
+        <Requirements />
       </Card>
     </Stack>
   );
