@@ -9,11 +9,11 @@ export interface Requirement {
 
 const defaultRequirements = [
   { resolver: minLength<string>(6), label: "Includes at least 6 characters" },
-  { resolver: regex(/[a-z]/), label: "Includes lowercase letter" },
-  { resolver: regex(/[A-Z]/), label: "Includes uppercase letter" },
-  { resolver: regex(/[0-9]/), label: "Includes number" },
+  { resolver: regex(/(.*[a-z])/), label: "Includes lowercase letter" },
+  { resolver: regex(/(.*[A-Z])/), label: "Includes uppercase letter" },
+  { resolver: regex(/(.*[0-9])/), label: "Includes number" },
   {
-    resolver: regex(/[$&+,:;=?@#|'<>.^*()%!-]/),
+    resolver: regex(/([$&+,:;=?@#|'<>.^*()%!-])/),
     label: "Includes special symbol",
   },
 ] satisfies Requirement[];
