@@ -758,6 +758,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^20.7.1":
+  version: 20.7.1
+  resolution: "@types/node@npm:20.7.1"
+  checksum: 3140bd6c9130f1ed73a78ce7a1765ee43e155c1eea50eea45e18faeb31d11d97a84fffdc5e3a97582101d2f57d2652a50f510ede6c702780267bad74c822d56c
+  languageName: node
+  linkType: hard
+
 "@types/prop-types@npm:*":
   version: 15.7.7
   resolution: "@types/prop-types@npm:15.7.7"
@@ -3155,6 +3162,7 @@ __metadata:
     "@mantine/core": ^7.0.2
     "@mantine/hooks": ^7.0.2
     "@tabler/icons-react": ^2.35.0
+    "@types/node": ^20.7.1
     "@types/react": ^18.2.15
     "@types/react-dom": ^18.2.7
     "@typescript-eslint/eslint-plugin": ^6.0.0

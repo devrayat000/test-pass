@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [react()],
   css: { postcss: "postcss.config.cjs" },
   define: {
-    "import.meta.env.URL": JSON.stringify(process.env.URL),
+    "import.meta.env.URL": JSON.stringify(
+      process.env.URL || process.env.VERCEL_URL
+    ),
   },
 });
