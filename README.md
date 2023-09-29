@@ -1,27 +1,56 @@
-# React + TypeScript + Vite
+# Test Pass
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web app for testing your password strength using custom requirements. Test Pass helps verify if your password meets the requirements or not. User can add custom validation logic from addons.
 
-Currently, two official plugins are available:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/69e348a0-9530-4210-b358-19dc3a373009/deploy-status?branch=master)](https://app.netlify.com/sites/test-pass/deploys) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
 
-## Expanding the ESLint configuration
+**Node version 16.x**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## How to Install
 
-- Configure the top-level `parserOptions` property like this:
+### Clone the repository
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+git clone https://github.com/devrayat000/test-pass
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Install dependencies
+
+```bash
+yarn install # use yarn v3
+```
+
+### Start the app
+
+```bash
+yarn dev
+```
+
+## Available Commands
+
+Run commands using yarn `yarn [command]`
+
+| command   | description                       |
+| :-------- | :-------------------------------- |
+| `dev`     | Start the app in development mode |
+| `build`   | Build the app for production      |
+| `preview` | Start the app in production mode  |
+
+## Features
+
+- [x] - Password strength meter
+- [x] - Password strength percentage color
+- [x] - Custom validation logic
+- [ ] - Strong password generator
+- [ ] - User defined custom validation
+- [ ] - Implement PWA
+
+## Contributing
+
+Contributions are always welcome!
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

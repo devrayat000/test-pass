@@ -1,15 +1,25 @@
 import { useCallback } from "react";
-import { ActionIcon, Popover, Stack, Title, rem, Button } from "@mantine/core";
+import {
+  ActionIcon,
+  Popover,
+  Stack,
+  Title,
+  rem,
+  Button,
+  Tooltip,
+  useMantineColorScheme,
+} from "@mantine/core";
 import { IconDotsVertical } from "@tabler/icons-react";
+import { useAtomCallback } from "jotai/utils";
+import { useAtomValue } from "jotai";
 
 import themeToggleClasses from "../ThemeToggle/index.module.css";
-import { useAtomValue } from "jotai";
 import { addOnRequirementsAtom } from "./store";
 import { Requirement, requirementsAtom } from "../Password/store";
-import { useAtomCallback } from "jotai/utils";
 
 export default function AddRequirements() {
   const addOns = useAtomValue(addOnRequirementsAtom);
+  const { colorScheme } = useMantineColorScheme();
 
   return (
     <Popover
@@ -23,15 +33,20 @@ export default function AddRequirements() {
       width={rem(360)}
       offset={{ mainAxis: 28, crossAxis: -14 }}
     >
-      <Popover.Target>
-        <ActionIcon
-          variant="default"
-          size="xl"
-          aria-label="Add more validation logic"
-        >
-          <IconDotsVertical className={themeToggleClasses.icon} />
-        </ActionIcon>
-      </Popover.Target>
+      <Tooltip
+        label="Add more requirements"
+        color={colorScheme === "dark" ? "gray" : "dark"}
+      >
+        <Popover.Target>
+          <ActionIcon
+            variant="default"
+            size="xl"
+            aria-label="Add more validation logic"
+          >
+            <IconDotsVertical className={themeToggleClasses.icon} />
+          </ActionIcon>
+        </Popover.Target>
+      </Tooltip>
       <Popover.Dropdown>
         <Stack>
           <Title order={5}>Add More Validation</Title>
@@ -48,6 +63,7 @@ export default function AddRequirements() {
 }
 
 function AddRequirement({ requirement }: { requirement: Requirement }) {
+  const { colorScheme } = useMantineColorScheme();
   const addToRequirements = useAtomCallback(
     useCallback(
       (_, set) => {
@@ -64,7 +80,7 @@ function AddRequirement({ requirement }: { requirement: Requirement }) {
     <Button
       variant="outline"
       size="md"
-      color="dark"
+      color={colorScheme === "dark" ? "gray" : "dark"}
       key={requirement.label}
       onClick={addToRequirements}
     >
