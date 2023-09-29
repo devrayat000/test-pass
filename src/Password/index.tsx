@@ -73,6 +73,7 @@ export default function Password() {
           size={10}
           mb="xs"
           classNames={{ section: classes.progress_section }}
+          aria-label="Password strength"
         />
         <Requirements />
       </Card>
